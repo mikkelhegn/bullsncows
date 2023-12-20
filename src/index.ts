@@ -31,7 +31,8 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
     cows: 0,
     bulls: 0
   };
-  let guess: number[] = new Array<number>(4);
+  //let guess: number[] = new Array<number>(4);
+  let guess: number[] = new Array<number>(3);
   let store = Kv.openDefault();
 
   // Check if it's an existing game or not
@@ -43,8 +44,9 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
     log.info(`Starting new game: ${id}`)
 
     // Generate solution
-    let solution: number[] = shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    solution.length = 4;
+    //let solution: number[] = shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    let solution: number[] = shuffle([0, 1, 2, 3, 4]);
+    solution.length = 3;
 
     internalGame = {
       id: id,
@@ -89,7 +91,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
       return {
         status: 400,
         headers: { "content-type": "text/plain" },
-        body: "Guess has to be 4 number, e.g., '1234'. The numbers have to be between 0-9. Use can only use each number once."
+        body: "Guess has to be 3 numbers, e.g., '123'. The numbers have to be between 0-4. Use can only use each number once."
       };
     }
   } else {
@@ -97,7 +99,7 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
     return {
       status: 400,
       headers: { "content-type": "text/plain" },
-      body: "No guess provided. Use '?guess=1234' to provide the guess"
+      body: "No guess provided. Use '?guess=123' to provide the guess"
     };
   }
 
@@ -114,7 +116,9 @@ export const handleRequest: HandleRequest = async function (request: HttpRequest
     }
   });
 
-  if (response.bulls == 4) {
+  log.info(`Bulls: ${response.bulls}, Cows: ${response.cows}`)
+
+  if (response.bulls == 3) {
     internalGame.solved = true;
     log.info(`Solved game: ${internalGame.id} in ${internalGame.guesses} guesses`);
   }

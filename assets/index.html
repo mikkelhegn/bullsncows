@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cows and Bulls Christmas Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #game-container {
+            margin: 50px auto;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #d9534f;
+        }
+
+        input {
+            width: 40px;
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #5bc0de;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #5cb85c;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #5bc0de;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="game-container">
+        <h1>Cows and Bulls Christmas Game</h1>
+        <p>Enter your festive guess:</p>
+        <input type="text" id="guessInput" maxlength="4">
+        <button onclick="checkGuess()">Check Guess</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // You'll need to implement the game logic here
+
+        function checkGuess() {
+            // Implement the logic to check the guess and update the result
+            // For example, you can compare the guess with the target number
+            // and count the number of cows and bulls.
+            // Update the result element with the outcome.
+        }
+    </script>
+
+</body>
+
+</html>
